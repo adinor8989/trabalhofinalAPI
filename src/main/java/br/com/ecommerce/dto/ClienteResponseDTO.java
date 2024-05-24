@@ -12,6 +12,8 @@ public class ClienteResponseDTO {
 	private String email;
 	
 	private Set<Cliente> clientes = new HashSet<>();
+	
+	
 
 	public ClienteResponseDTO(Long id, String nome, String email, Set<Cliente> clientes) {
 		this.id = id;
@@ -19,7 +21,9 @@ public class ClienteResponseDTO {
 		this.email = email;
 		this.clientes = clientes;
 	}
-
+    public ClienteResponseDTO() {
+	// TODO Auto-generated constructor stub
+    }
 	public ClienteResponseDTO(Cliente c) {
 	}
 

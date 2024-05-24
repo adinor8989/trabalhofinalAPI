@@ -11,20 +11,28 @@ public class ClienteRequestDTO {
 	private String email;
 	private String telefone;
 	private String cep;
+	private String cpf;
 	
 	private Set<Cliente> clientes = new HashSet<>();
 
 	public ClienteRequestDTO() {
 	}
-	public ClienteRequestDTO(String nome, String email, String telefone, String cep, Set<Cliente> clientes) {
+	public ClienteRequestDTO(String nome, String email, String telefone, String cep,String cpf, Set<Cliente> clientes) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
 		this.cep = cep;
+		this.cpf = cpf;
 		this.clientes = clientes;
 	}
 
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 	public String getNome() {
 		return nome;
 	}

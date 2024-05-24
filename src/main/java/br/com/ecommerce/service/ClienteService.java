@@ -18,13 +18,16 @@ public class ClienteService {
 	private ClienteRepository repository;
 
 	public List<ClienteResponseDTO> listar(){
-		List<Cliente> clientes = repository.findAll();
-		return clientes.stream().map((c) -> new ClienteResponseDTO(c)).collect(Collectors.toList());
+		List<Cliente> clientess = repository.findAll();
+		return clientess.stream().map((c) -> new ClienteResponseDTO(c)).collect(Collectors.toList());
 	}
 
-	public ClienteResponseDTO inserir(ClienteRequestDTO cliente) {
-		// TODO Auto-generated method stub
-		return null;
+	public ClienteResponseDTO inserir(ClienteRequestDTO  clientes) {
+		ClienteResponseDTO u = new ClienteResponseDTO();
+		u.setEmail(clientes.getEmail());
+		u.setNome(clientes.getNome());
+		return u;
 	}
+	
 	
 }

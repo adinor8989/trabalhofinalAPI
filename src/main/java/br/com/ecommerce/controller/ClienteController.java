@@ -27,10 +27,9 @@ public class ClienteController {
 	}
 
 
-
 	@PostMapping
 	public ResponseEntity<ClienteResponseDTO> inserir(@RequestBody ClienteRequestDTO cliente) {
-	ClienteResponseDTO u = service.inserir(cliente);
-	return ResponseEntity.created(null).body(u);
+//	ClienteResponseDTO u = service.inserir(cliente);
+	return ResponseEntity.created(null).body(service.inserir(cliente));
 }
 }
