@@ -18,17 +18,16 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	private boolean status;
-	
+	private String status;
 	private LocalDate data;
 	private Double total;
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
-	
+
 	@PrePersist
 	public void persistDataEntrada() {
-			data = LocalDate.now();
+		data = LocalDate.now();
 	}
 
 	public Cliente getCliente() {
@@ -47,11 +46,11 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public boolean isStatus() {
+	public String isStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 

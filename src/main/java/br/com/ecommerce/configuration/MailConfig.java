@@ -1,4 +1,4 @@
-package br.com.serratec.configuration;
+package br.com.ecommerce.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -21,4 +21,3 @@ public class MailConfig {
 		mail.send(message);
 	}
 }
-
