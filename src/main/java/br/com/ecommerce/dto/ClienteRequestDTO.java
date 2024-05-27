@@ -1,10 +1,5 @@
 package br.com.ecommerce.dto;
 
-
-import java.util.Set;
-
-import br.com.ecommerce.entity.Cliente;
-
 public class ClienteRequestDTO {
 	
 	

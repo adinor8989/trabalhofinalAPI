@@ -1,4 +1,4 @@
-package br.com.serratec.exception;
+package br.com.ecommerce.exception;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+
 
 @ControllerAdvice
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {

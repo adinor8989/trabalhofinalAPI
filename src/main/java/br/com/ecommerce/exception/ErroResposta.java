@@ -1,4 +1,4 @@
-package br.com.serratec.exception;
+package br.com.ecommerce.exception;
 
 import java.time.LocalDateTime;
 import java.util.List;

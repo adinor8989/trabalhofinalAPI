@@ -1,4 +1,4 @@
-package br.com.serratec.exception;
+package br.com.ecommerce.exception;
 
 public class ConfirmaSenhaException extends RuntimeException {
 

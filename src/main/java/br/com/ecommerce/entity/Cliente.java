@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 
 
@@ -17,12 +18,13 @@ public class Cliente {
 	private String nome;
 	@NotBlank
 	private String telefone;
-    @NotBlank
+    @Valid
 	private String email;
-
+    @Valid
 	private String cpf;
-
 	private String cep;
+	
+	
 	
 	public String getCep() {
 		return cep;

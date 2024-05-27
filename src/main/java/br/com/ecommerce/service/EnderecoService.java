@@ -8,8 +8,8 @@ import org.springframework.web.client.RestTemplate;
 
 import br.com.ecommerce.dto.EnderecoResponseDTO;
 import br.com.ecommerce.entity.Endereco;
+import br.com.ecommerce.exception.ResourceNotFoundException;
 import br.com.ecommerce.repository.EnderecoRepository;
-import br.com.serratec.exception.ResourceNotFoundException;
 
 @Service
 public class EnderecoService {

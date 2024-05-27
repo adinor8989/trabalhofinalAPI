@@ -1,6 +1,7 @@
 package br.com.ecommerce.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.validation.constraints.NotNull;
 
@@ -24,7 +26,11 @@ public class Pedido {
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
-
+	@OneToMany
+	private List<Carrinho> carrinho;
+	
+	
+	
 	@PrePersist
 	public void persistDataEntrada() {
 		data = LocalDate.now();
@@ -64,6 +70,18 @@ public class Pedido {
 
 	public Double getTotal() {
 		return total;
+	}
+
+	public List<Carrinho> getCarrinho() {
+		return carrinho;
+	}
+
+	public void setCarrinho(List<Carrinho> carrinho) {
+		this.carrinho = carrinho;
+	}
+
+	public String getStatus() {
+		return status;
 	}
 
 	public void setTotal(Double total) {
