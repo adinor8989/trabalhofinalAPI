@@ -6,7 +6,6 @@ import java.util.Set;
 import br.com.ecommerce.entity.Cliente;
 
 public class ClienteRequestDTO {
-	
 	private String nome;
 	private String email;
 	private String telefone;
@@ -18,7 +17,6 @@ public class ClienteRequestDTO {
 	public ClienteRequestDTO() {
 	}
 	public ClienteRequestDTO(String nome, String email, String telefone, String cep,String cpf, Set<Cliente> clientes) {
-		super();
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
@@ -72,4 +70,5 @@ public class ClienteRequestDTO {
 	public void setClientes(Set<Cliente> clientes) {
 		this.clientes = clientes;
 	}
+
 }
