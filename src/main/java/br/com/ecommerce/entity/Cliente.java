@@ -27,7 +27,7 @@ public class Cliente {
 	private String email;
 
 	@NotBlank
-	@CPF
+    @CPF
 	private String cpf;
 
 	@NotBlank
