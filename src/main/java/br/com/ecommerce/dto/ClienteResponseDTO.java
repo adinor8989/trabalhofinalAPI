@@ -1,26 +1,21 @@
 package br.com.ecommerce.dto;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import br.com.ecommerce.entity.Cliente;
 
 public class ClienteResponseDTO {
 
 	private String nome;
 	private String email;
-	
-	private Set<Cliente> clientes = new HashSet<>();
-	
-	
 
-	public ClienteResponseDTO(Long id, String nome, String email, Set<Cliente> clientes) {
+	public ClienteResponseDTO(Long id, String nome, String email) {
 		this.nome = nome;
 		this.email = email;
-		this.clientes = clientes;
+
 	}
-    public ClienteResponseDTO() {
-    }
+
+	public ClienteResponseDTO() {
+	}
+
 	public ClienteResponseDTO(Cliente c) {
 	}
 
@@ -40,11 +35,4 @@ public class ClienteResponseDTO {
 		this.email = email;
 	}
 
-	public Set<Cliente> getClientes() {
-		return clientes;
-	}
-
-	public void setClientes(Set<Cliente> clientes) {
-		this.clientes = clientes;
-	}
 }

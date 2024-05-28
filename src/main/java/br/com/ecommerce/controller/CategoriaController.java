@@ -1,5 +1,7 @@
 package br.com.ecommerce.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ecommerce.entity.Categoria;
+import br.com.ecommerce.entity.Produto;
 import br.com.ecommerce.service.CategoriaService;
 
 
@@ -21,6 +24,11 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaService service;
 	
+	@GetMapping
+	public ResponseEntity<List<Categoria>> buscar() {
+		return ResponseEntity.ok(service.buscar());
+	}
+		
 	@GetMapping("{id}")
 	public ResponseEntity<Categoria> buscarporid(@PathVariable Long id) {
 		return ResponseEntity.ok(service.buscarid(id));

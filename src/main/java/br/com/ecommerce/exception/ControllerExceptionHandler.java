@@ -29,7 +29,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 			erros.add(f.getField() + ":" + f.getDefaultMessage());
 		}
 
-		ErroResposta er = new ErroResposta(status.value(), "Existem campos inválidos", LocalDateTime.now(), erros);
+		DetalhesErro er = new DetalhesErro(status.value(), "Existem campos inválidos", LocalDateTime.now(), erros);
 		return super.handleExceptionInternal(ex, er, headers, status, request);
 	}
 
@@ -37,7 +37,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
 			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
 
-		ErroResposta er = new ErroResposta(status.value(), "Campos inválidos foram inseridos, favor verificar",
+		DetalhesErro er = new DetalhesErro(status.value(), "Campos inválidos foram inseridos, favor verificar",
 				LocalDateTime.now(), null);
 		return super.handleExceptionInternal(ex, er, headers, status, request);
 	}
@@ -47,7 +47,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 		List<String> erros = new ArrayList<>();
 		erros.add(e.getMessage());
 		HttpStatus http = HttpStatus.BAD_REQUEST;
-		ErroResposta er = new ErroResposta(http.value(), "Existem Erros", LocalDateTime.now(), erros);
+		DetalhesErro er = new DetalhesErro(http.value(), "Existem Erros", LocalDateTime.now(), erros);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(er);
 	}
 
@@ -56,7 +56,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 		List<String> erros = new ArrayList<>();
 		erros.add(e.getMessage());
 		HttpStatus http = HttpStatus.BAD_REQUEST;
-		ErroResposta er = new ErroResposta(http.value(), "Existem Erros", LocalDateTime.now(), erros);
+		DetalhesErro er = new DetalhesErro(http.value(), "Existem Erros", LocalDateTime.now(), erros);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(er);
 	}
 
@@ -67,7 +67,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 		List<String> erros = new ArrayList<>();
 		erros.add(ex.getMessage());
 
-		ErroResposta erroResposta = new ErroResposta(HttpStatus.NOT_FOUND.value(), "Recurso não encontrado",
+		DetalhesErro erroResposta = new DetalhesErro(HttpStatus.NOT_FOUND.value(), "Recurso não encontrado",
 				LocalDateTime.now(), erros);
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erroResposta);

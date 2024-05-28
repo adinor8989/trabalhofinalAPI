@@ -1,9 +1,16 @@
 package br.com.ecommerce.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import br.com.ecommerce.dto.PedidoRequestDTO;
+import br.com.ecommerce.enums.PedidoStatus;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,17 +27,28 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	private String status;
+	private PedidoStatus status;
 	private LocalDate data;
 	private Double total;
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
-	@OneToMany
-	private List<Carrinho> carrinho;
-	
-	
-	
+	@OneToMany(mappedBy = "pedido")
+	private List<Carrinho> carrinho = new ArrayList<>();
+
+	public Pedido() {
+
+	}
+
+	public Pedido(PedidoRequestDTO pedidoRequestDTO, Cliente cliente) {
+
+		this.status = pedidoRequestDTO.getStatus();
+		this.data = pedidoRequestDTO.getData();
+		this.total = pedidoRequestDTO.getTotal();
+		this.cliente = cliente;
+
+	}
+
 	@PrePersist
 	public void persistDataEntrada() {
 		data = LocalDate.now();
@@ -52,14 +70,6 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public String isStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	public LocalDate getData() {
 		return data;
 	}
@@ -72,6 +82,7 @@ public class Pedido {
 		return total;
 	}
 
+	
 	public List<Carrinho> getCarrinho() {
 		return carrinho;
 	}
@@ -80,8 +91,12 @@ public class Pedido {
 		this.carrinho = carrinho;
 	}
 
-	public String getStatus() {
+	public PedidoStatus getStatus() {
 		return status;
+	}
+
+	public void setStatus(PedidoStatus status) {
+		this.status = status;
 	}
 
 	public void setTotal(Double total) {
