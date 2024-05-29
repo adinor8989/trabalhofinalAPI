@@ -17,6 +17,9 @@ public class DetalhesErro {
 		this.dataHora = dataHora;
 		this.erros = erros;
 	}
+	public DetalhesErro(int value, String message, String description) {
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getStatus() {
 		return status;
 	}

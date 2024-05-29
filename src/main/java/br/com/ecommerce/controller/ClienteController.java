@@ -42,4 +42,19 @@ public class ClienteController {
         ClienteResponseDTO createdCliente = clienteService.createCliente(clienteRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCliente);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ClienteResponseDTO> updateCliente(@PathVariable Long id, @RequestBody ClienteRequestDTO clienteRequestDTO) {
+        ClienteResponseDTO cliente = clienteService.updateCliente(id, clienteRequestDTO);
+        if (cliente != null) {
+            return ResponseEntity.ok(cliente);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
+        clienteService.deleteCliente(id);
+        return ResponseEntity.noContent().build();
+    }
 }

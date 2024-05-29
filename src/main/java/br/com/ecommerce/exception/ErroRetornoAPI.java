@@ -8,7 +8,8 @@ import org.springframework.web.context.request.WebRequest;
 
 @ControllerAdvice
 public class ErroRetornoAPI {
-/* @ExceptionHandler(ResourceNotFoundException.class)
+ 
+	@ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleRecursoNaoEncontrado(ResourceNotFoundException ex, WebRequest request) {
         DetalhesErro detalhesErro = new DetalhesErro(HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(detalhesErro, HttpStatus.NOT_FOUND);
@@ -30,5 +31,5 @@ public class ErroRetornoAPI {
     public ResponseEntity<?> handleGlobalException(Exception ex, WebRequest request) {
         DetalhesErro detalhesErro = new DetalhesErro(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(detalhesErro, HttpStatus.INTERNAL_SERVER_ERROR);
-    }*/
+    }
 }

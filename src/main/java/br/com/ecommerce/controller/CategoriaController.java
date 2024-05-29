@@ -7,13 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ecommerce.entity.Categoria;
-import br.com.ecommerce.entity.Produto;
 import br.com.ecommerce.service.CategoriaService;
+import jakarta.persistence.EntityNotFoundException;
 
 
 
@@ -40,6 +41,16 @@ public class CategoriaController {
 		Categoria u = service.inserirCategoria(categoria);
 		return ResponseEntity.created(null).body(u);
 	}
+	
+	@PutMapping("/categorias/{id}")
+    public ResponseEntity<Categoria> alterarCategoria(@RequestBody Categoria categoria, @PathVariable Long id) {
+        try {
+            Categoria categoriaAtualizada = service.alterarCategoria(categoria, id);
+            return ResponseEntity.ok(categoriaAtualizada);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 	
 	
 	
