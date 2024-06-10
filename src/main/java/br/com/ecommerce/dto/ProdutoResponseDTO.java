@@ -1,13 +1,13 @@
 package br.com.ecommerce.dto;
 
-import br.com.ecommerce.entity.Categoria;
+
 import br.com.ecommerce.entity.Produto;
 
 public class ProdutoResponseDTO {
 
 	private Long id;
 	private String nome;
-	private Categoria categoria;
+	private String nomeCategoria;
 
 	public ProdutoResponseDTO() {
 		super();
@@ -17,7 +17,8 @@ public class ProdutoResponseDTO {
 		super();
 		this.id = p.getId();
 		this.nome = p.getNome();
-		this.categoria = p.getCategoria();
+		this.nomeCategoria = p.getCategoria().getNome();
+		
 	}
 
 	public Long getId() {
@@ -36,12 +37,14 @@ public class ProdutoResponseDTO {
 		this.nome = nome;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public String getNomeCategoria() {
+		return nomeCategoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setNomeCategoria(String nomeCategoria) {
+		this.nomeCategoria = nomeCategoria;
 	}
+
+	
 
 }

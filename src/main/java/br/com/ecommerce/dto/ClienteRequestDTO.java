@@ -10,17 +10,27 @@ public class ClienteRequestDTO {
 	private String telefone;
 	private String cep;
 	private String cpf;
+	private String senha;
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public ClienteRequestDTO() {
 	}
 
-	public ClienteRequestDTO(String nome, String email, String telefone, String cep, String cpf,
+	public ClienteRequestDTO(String nome, String email, String telefone, String cep, String cpf, String senha,
 			Set<Cliente> clientes) {
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
 		this.cep = cep;
 		this.cpf = cpf;
+		this.senha = senha;
 
 	}
 

@@ -32,6 +32,9 @@ public class Cliente {
 
 	@NotBlank
 	private String cep;
+	
+	@NotBlank
+	private String senha;
 
 	public String getCep() {
 		return cep;
